@@ -1,7 +1,9 @@
 'use strict';
-// catRoute
+// userRoute
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const userController = require('../controllers/userController');
 
 /*router.get('/', (req, res) => {
@@ -11,6 +13,7 @@ const userController = require('../controllers/userController');
 router.get('/', userController.user_list_get);
 
 router.get('/:id', userController.user_get);
+router.post('/', upload.single('user'), userController.user_create_post);
 
 router.post('/', userController.user_create_post);
 
