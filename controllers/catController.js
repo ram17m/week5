@@ -8,8 +8,16 @@ const cat_list_get = async (req, res) => {
   await res.json(cats);
 };
 
-const cat_create_post = (req, res) => {
-  res.send('With this endpoint you can add cats.');
+const cat_create_post = async(req, res) => {
+  const params = [
+    req.body.name,
+    req.body.weight,
+    req.body.age,
+    req.body.owner,
+    req.file.filename,
+  ];
+  const response = await catModel.addCat(params);
+  await res.json(response);
 };
 
 const cat_get = async (req, res) => {
