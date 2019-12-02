@@ -1,5 +1,6 @@
 "use strict";
 const catModel = require("../models/catModel");
+const userModel = require("../models/userModel");
 
 // const cats = catModel.cats;
 
