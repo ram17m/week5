@@ -11,6 +11,7 @@ const imageMeta = require("../utils/imageMeta");
 // ./controllers/catController.js
 
 const cat_list_get = async (req, res) => {
+  console.log("all cats are comming....");
   const cats = await catModel.getAllCats();
   await res.json(cats);
 };
@@ -71,6 +72,7 @@ const upload_cat = async (req, res) => {
 
 const cat_get = async (req, res) => {
   const params = [req.params.id];
+  console.log(`one cat ${params} is comming...`);
   const cat = await catModel.getCat(params);
   await res.json(cat[0]);
 };
